@@ -26,8 +26,8 @@ Proyecto final - Curso de FrontEnd 2026,  Asociación de Informáticos UTE-USACH
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/javieraramirezpdev/PetCareApp.git
-cd petcare
+git clone https://github.com/javieraramirezpdev/PetCarePlatform.git
+cd PetCarePlatform
 
 # 2. Instalar dependencias
 npm install
@@ -45,43 +45,24 @@ No se requieren variables de entorno: Dog CEO y OpenStreetMap son APIs públicas
 
 ## URL de producción
 
-`https://petcare-app.vercel.app` _(actualizar con la URL real de Vercel al desplegar)_
+`https://petcareplatform.vercel.app` _(actualizar con la URL real de Vercel al desplegar)_
 
 ## Estructura del proyecto
 
-```
 app/
-  layout.tsx          Layout raíz: fuentes y metadata global
-  page.tsx             Redirige a /login
-  login/                Pantalla de inicio de sesión (solo visual, sin backend)
-  (dashboard)/          Route group con el layout de la app autenticada
-    layout.tsx           Navbar, Sidebar, Footer, BottomNavigation
-    loading.tsx / error.tsx   Estado de carga y error del dashboard
-    home/                 Dashboard principal
-    mypet/                Perfil de la mascota, vacunas e historial
-    breeds/               Catálogo de razas (The Dog API) + loading/error propios
-    veterinarians/        Buscador de veterinarias (OpenStreetMap)
-    agenda/               Reserva y listado de citas
-components/            Componentes reutilizables (Navbar, Sidebar, Card, etc.)
-lib/                   Tipos, datos simulados y funciones de consumo de API
-```
-
-> Nota: `(dashboard)` es un *route group* de Next.js — agrupa rutas bajo un
-> layout compartido sin agregar ese nombre a la URL. `/home`, `/mypet`, etc.
-> se sirven igual, pero solo ellas muestran Navbar/Sidebar/BottomNavigation;
-> `/login` queda con una pantalla completa propia.
-
-## Conflictos resueltos
-
-_Completar durante el desarrollo en equipo, por ejemplo:_
-
-- **Conflicto:** ambos integrantes modificaron `components/Navbar.tsx` en ramas distintas
-  (uno agregó el buscador, otro el ícono de notificaciones).
-  **PR / commit:** enlace al Pull Request o merge commit.
-  **Resolución:** se conservaron ambos cambios combinando manualmente el JSX de las dos
-  ramas y se verificó que el build siguiera pasando.
-
-## Stack técnico
-
-Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS · lucide-react
-# PetCareApp
+layout.tsx Layout raíz: fuentes y metadata global
+page.tsx Landing page pública (marketing) con SEO completo
+robots.ts Genera robots.txt
+sitemap.ts Genera sitemap.xml
+opengraph-image.tsx Imagen og:image generada dinámicamente
+login/ Pantalla de inicio de sesión (solo visual, sin backend)
+(dashboard)/ Route group con el layout de la app autenticada
+layout.tsx Navbar, Sidebar, Footer, BottomNavigation
+loading.tsx / error.tsx Estado de carga y error del dashboard
+home/ Dashboard principal
+mypet/ Perfil de la mascota, vacunas e historial
+breeds/ Catálogo de razas (Dog CEO API) + loading/error propios
+veterinarians/ Buscador de veterinarias (OpenStreetMap)
+agenda/ Reserva y listado de citas
+components/ Componentes reutilizables (Navbar, Sidebar, Card, etc.)
+lib/ Tipos, datos simulados y funciones de consumo de API
