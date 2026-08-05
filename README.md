@@ -49,20 +49,68 @@ No se requieren variables de entorno: Dog CEO y OpenStreetMap son APIs públicas
 
 ## Estructura del proyecto
 
-app/
-layout.tsx Layout raíz: fuentes y metadata global
-page.tsx Landing page pública (marketing) con SEO completo
-robots.ts Genera robots.txt
-sitemap.ts Genera sitemap.xml
-opengraph-image.tsx Imagen og:image generada dinámicamente
-login/ Pantalla de inicio de sesión (solo visual, sin backend)
-(dashboard)/ Route group con el layout de la app autenticada
-layout.tsx Navbar, Sidebar, Footer, BottomNavigation
-loading.tsx / error.tsx Estado de carga y error del dashboard
-home/ Dashboard principal
-mypet/ Perfil de la mascota, vacunas e historial
-breeds/ Catálogo de razas (Dog CEO API) + loading/error propios
-veterinarians/ Buscador de veterinarias (OpenStreetMap)
-agenda/ Reserva y listado de citas
-components/ Componentes reutilizables (Navbar, Sidebar, Card, etc.)
-lib/ Tipos, datos simulados y funciones de consumo de API
+```
+PetCarePlatform/
+├── app/
+│   ├── layout.tsx              # Layout raíz: fuentes y metadata global
+│   ├── page.tsx                 # Landing page pública (marketing) con SEO completo
+│   ├── globals.css              # Estilos globales
+│   ├── robots.ts                # Genera robots.txt
+│   ├── sitemap.ts               # Genera sitemap.xml
+│   ├── opengraph-image.tsx      # Imagen og:image generada dinámicamente
+│   ├── twitter-image.tsx        # Imagen twitter:image
+│   │
+│   ├── login/
+│   │   └── page.tsx             # Inicio de sesión (solo visual, sin backend)
+│   │
+│   └── (dashboard)/             # Route group: app autenticada
+│       ├── layout.tsx           # Navbar, Sidebar, Footer, BottomNavigation
+│       ├── loading.tsx          # Estado de carga del dashboard
+│       ├── error.tsx            # Manejo de errores del dashboard
+│       ├── home/                # Dashboard principal
+│       ├── mypet/                # Perfil de la mascota, vacunas e historial
+│       ├── breeds/               # Catálogo de razas (Dog CEO API)
+│       │   ├── loading.tsx
+│       │   └── error.tsx
+│       ├── veterinarians/        # Buscador de veterinarias (OpenStreetMap)
+│       └── agenda/               # Reserva y listado de citas
+│
+├── components/                  # Componentes reutilizables
+│   ├── Navbar.tsx / LandingNavbar.tsx
+│   ├── Footer.tsx
+│   ├── Sidebar.tsx
+│   ├── Card.tsx / Button.tsx / Badge.tsx
+│   ├── FeatureCard.tsx / HeroSection.tsx / LandingHero.tsx
+│   └── ...
+│
+├── lib/                          # Tipos, datos simulados y consumo de APIs
+│   ├── types.ts
+│   ├── data.ts
+│   ├── api.ts
+│   └── nav.ts
+│
+├── public/                       # Archivos estáticos
+├── next.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+└── package.json
+```
+
+> Nota: `(dashboard)` es un *route group* de Next.js — agrupa rutas bajo un
+> layout compartido sin agregar ese nombre a la URL. `/home`, `/mypet`, etc.
+> se sirven igual, pero solo ellas muestran Navbar/Sidebar/BottomNavigation;
+> `/login` queda con una pantalla completa propia.
+
+## Conflictos resueltos
+
+_Completar durante el desarrollo en equipo, por ejemplo:_
+
+- **Conflicto:** ambos integrantes modificaron `components/Navbar.tsx` en ramas distintas
+  (uno agregó el buscador, otro el ícono de notificaciones).
+  **PR / commit:** enlace al Pull Request o merge commit.
+  **Resolución:** se conservaron ambos cambios combinando manualmente el JSX de las dos
+  ramas y se verificó que el build siguiera pasando.
+
+## Stack técnico
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS · lucide-react
