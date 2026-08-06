@@ -7,7 +7,7 @@ import Badge from "@/components/Badge";
 import VaccineCard from "@/components/VaccineCard";
 import AppointmentCard from "@/components/AppointmentCard";
 import NewsCard from "@/components/NewsCard";
-import { appointments, news, pet, petStats } from "@/lib/data";
+import { appointments, news, pets, getPetStats } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Inicio",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const pet = pets[0];
+  const petStats = getPetStats(pet);
   const upcomingAppointment = appointments.find((a) => a.status !== "completada");
   const upcomingVaccine = pet.vaccines.find((v) => v.status !== "al-dia");
 
@@ -26,7 +28,6 @@ export default function HomePage() {
     <div className="flex flex-col gap-8">
       <HeroSection ownerName="María" petName={pet.name} petPhoto={pet.photo} />
 
-      {/* Accesos rápidos */}
       <section aria-labelledby="accesos-rapidos">
         <h2 id="accesos-rapidos" className="font-display text-lg font-semibold text-ink-800 mb-3">
           Accesos rápidos
@@ -39,7 +40,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Estadísticas */}
       <section aria-labelledby="estadisticas">
         <h2 id="estadisticas" className="font-display text-lg font-semibold text-ink-800 mb-3">
           Estadísticas de {pet.name}
@@ -56,7 +56,6 @@ export default function HomePage() {
       </section>
 
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Próximas vacunas */}
         <section aria-labelledby="proximas-vacunas">
           <div className="flex items-center justify-between mb-3">
             <h2 id="proximas-vacunas" className="font-display text-lg font-semibold text-ink-800">
@@ -71,7 +70,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Próximas citas */}
         <section aria-labelledby="proximas-citas">
           <h2 id="proximas-citas" className="font-display text-lg font-semibold text-ink-800 mb-3">
             Próximas citas
@@ -89,7 +87,6 @@ export default function HomePage() {
         </section>
       </div>
 
-      {/* Noticias veterinarias */}
       <section aria-labelledby="noticias">
         <h2 id="noticias" className="font-display text-lg font-semibold text-ink-800 mb-3">
           Noticias y consejos veterinarios
