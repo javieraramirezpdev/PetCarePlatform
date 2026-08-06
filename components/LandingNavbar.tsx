@@ -8,7 +8,7 @@ import Button from "./Button";
 const links = [
   { href: "#features", label: "Funciones" },
   { href: "#como-funciona", label: "¿Cómo funciona?" },
-  { href: "#veterinarios", label: "Veterinarios" },
+  { href: "#uneteaqui", label: "Únete aquí" },
 ];
 
 export default function LandingNavbar() {
