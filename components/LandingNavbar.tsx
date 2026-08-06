@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const links = [
   { href: "#features", label: "Funciones" },
-  { href: "#como-funciona", label: "Cómo funciona" },
+  { href: "#como-funciona", label: "¿Cómo funciona?" },
   { href: "#veterinarios", label: "Veterinarios" },
 ];
 
