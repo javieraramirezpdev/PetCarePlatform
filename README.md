@@ -105,12 +105,9 @@ PetCarePlatform/
 
 _Completar durante el desarrollo en equipo, por ejemplo:_
 
-- **Conflicto:** ambos integrantes modificaron `components/Navbar.tsx` en ramas distintas
-  (uno agregó el buscador, otro el ícono de notificaciones).
-  **PR / commit:** enlace al Pull Request o merge commit.
-  **Resolución:** se conservaron ambos cambios combinando manualmente el JSX de las dos
-  ramas y se verificó que el build siguiera pasando.
+*Conflictos resueltos*
+Conflicto: ambos integrantes modificaron el array links en components/LandingNavbar.tsx en ramas distintas. Javiera renombró el enlace de "Veterinarios" a "Únete aquí" (#uneteaqui) en feature/navbar-uneteaqui, mientras que Jorge, en paralelo, renombró "Cómo funciona" a "¿Cómo funciona?" y también tocó la misma línea de "Veterinarios" en feature/comofunciona-jorge. PR: https://github.com/javieraramirezpdev/PetCarePlatform/pull/3 Resolución: se resolvió desde el editor de conflictos de GitHub, aceptando el cambio entrante de main para conservar el enlace "Únete aquí" (#uneteaqui) y el cambio de la rama del PR para "¿Cómo funciona?", verificando que ambos textos quedaran correctamente conectados a sus respectivas secciones (id="uneteaqui" / id="como-funciona") antes de mergear.
 
-## Stack técnico
+Stack técnico
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS · lucide-react
