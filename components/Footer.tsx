@@ -61,7 +61,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-ink-400 text-center sm:text-left">
-          © {new Date().getFullYear()} PetCare. Proyecto final · Curso de FrontEnd.
+          © {new Date().getFullYear()} PetCare Platform - Todos los derechos reservados.
         </p>
       </div>
     </footer>
